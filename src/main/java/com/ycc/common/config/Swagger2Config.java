@@ -30,6 +30,11 @@ public class Swagger2Config implements WebMvcConfigurer {
 
     // 定义分隔符
     private static final String splitor = ",";
+
+	/**
+	 * 如果有多个包路径，可以加逗号分隔，如com.ycc,com.xiuxiu
+	 */
+	private static final String BASE_PACKAGE = "com.ycc";
 	
 	/**
 	 *
@@ -56,7 +61,7 @@ public class Swagger2Config implements WebMvcConfigurer {
 				.select()
 				//此包路径下的类，才生成接口文档
 //				.apis(RequestHandlerSelectors.basePackage("org.jeecg.modules"))
-				.apis(basePackage("com.ycc"))
+				.apis(basePackage(BASE_PACKAGE))
 				//加了ApiOperation注解的类，才生成接口文档
 	            .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
 				.paths(PathSelectors.any())
@@ -72,7 +77,7 @@ public class Swagger2Config implements WebMvcConfigurer {
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
 				// //大标题
-				.title("test后台服务API接口文档")
+				.title("ycc后台服务API接口文档")
 				// 版本号
 				.version("1.0")
 				// 描述
