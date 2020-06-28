@@ -11,4 +11,14 @@ public class UserServiceImpl  implements UserService {
     public final User getUserByIdNum(Integer id) {
         return null;
     }
+
+    @Override
+    public User findByUserName(String userName) {
+        return null;
+    }
+
+    @Override
+    public String login(String username, String password) {
+        return null;
+    }
 }
