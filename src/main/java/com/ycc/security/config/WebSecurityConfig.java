@@ -1,7 +1,6 @@
 package com.ycc.security.config;
 
 import com.ycc.security.component.JwtAuthenticationFilter;
-import com.ycc.security.component.JwtLoginFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

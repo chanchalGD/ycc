@@ -1,11 +1,12 @@
 package com.ycc.service;
 
-import com.ycc.model.entity.User;
+import com.ycc.model.dto.UserRegisterDto;
+import com.ycc.model.entity.UserAdmin;
 
 public interface UserService {
-    User getUserByIdNum(Integer id);
+    UserAdmin getUserByIdNum(Integer id);
 
-    User findByUserName(String userName);
+    UserAdmin findByUserName(String userName);
 
     /**
      * 登录功能
@@ -14,4 +15,12 @@ public interface UserService {
      * @return 生成的JWT的token
      */
     String login(String username,String password);
+
+    /**
+     * 登录功能
+     * @param userRegisterDto
+     * @return 生成的JWT的token
+     */
+    UserAdmin register(UserRegisterDto userRegisterDto);
+
 }
