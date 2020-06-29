@@ -1,5 +1,6 @@
 package com.ycc.common.exception.handler;
 
+import com.ycc.common.exception.ApiException;
 import com.ycc.common.vo.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -7,7 +8,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
+ * 统一异常处理控制器
  * @author: ccc
+ * @date 2020/06/29
  *
 **/
 
@@ -15,17 +18,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @ControllerAdvice
 public class ExpectionHandlerController {
 
-    /**
-     * 处理NullPointerException,理论上代码里不应该抛出空指针
-     *
-     * @param e
-     * @return
-     */
-    @ExceptionHandler({ NullPointerException.class })
+    @ExceptionHandler({ ApiException.class })
     @ResponseBody
-    public Response<?> handleNullPointerException(NullPointerException e) {
-        log.error("未知空指针异常", e);
-        return new Response().failed("服务异常，请检查数据是否正确");
+    public Response<?> handleApiException(ApiException e) {
+        log.error("接口服务异常", e);
+        return new Response().failed(e.getMessage());
     }
 
     @ExceptionHandler({ Exception.class })

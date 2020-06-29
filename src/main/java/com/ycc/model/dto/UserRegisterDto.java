@@ -8,6 +8,10 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotEmpty;
 
+/**
+ * @author ccc
+ * @date 2020/06/29
+ */
 @ApiModel(value = "person")
 @Data
 @NoArgsConstructor
@@ -16,14 +20,11 @@ public class UserRegisterDto {
 
     @ApiModelProperty(value = "用户名")
     @NotEmpty(message = "用户名不能为空")
-    private String name;
+    private String userName;
 
-    @ApiModelProperty(value = "备注")
-    private String remark;
-
-    @NotEmpty(message = "地址不能为空")
-    @ApiModelProperty(value = "地址")
-    private String address;
+    @ApiModelProperty(value = "用户名")
+    @NotEmpty(message = "用户名不能为空")
+    private String passWord;
 
     @NotEmpty(message = "年龄不能为空")
     @ApiModelProperty(value = "年龄")
@@ -33,13 +34,8 @@ public class UserRegisterDto {
     @ApiModelProperty(value = "手机")
     private String phone;
 
-    @NotEmpty(message = "性别不能为空")
-    @ApiModelProperty(value = "性别")
-    private Integer sex;
-
-
-    @NotEmpty(message = "身份证号不能为空")
-    @ApiModelProperty(value = "身份证号")
-    private Integer idNum;
+    @NotEmpty(message = "昵称不能为空")
+    @ApiModelProperty(value = "昵称")
+    private String nickName;
 
 }

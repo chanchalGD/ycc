@@ -8,17 +8,24 @@ import lombok.ToString;
 
 import java.util.Date;
 
+/**
+ * @author ccc
+ * @date 2020/06/29
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
 public class UserAdmin {
 
+    @ApiModelProperty(value = "用户id")
     private Long id;
 
-    private String username;
+    @ApiModelProperty(value = "用户名")
+    private String userName;
 
-    private String password;
+    @ApiModelProperty(value = "用户密码")
+    private String passWord;
 
     @ApiModelProperty(value = "头像")
     private String icon;
@@ -26,11 +33,17 @@ public class UserAdmin {
     @ApiModelProperty(value = "邮箱")
     private String email;
 
+    @ApiModelProperty(value = "手机")
+    private String phone;
+
+    @ApiModelProperty(value = "年龄")
+    private String age;
+
     @ApiModelProperty(value = "昵称")
     private String nickName;
 
     @ApiModelProperty(value = "备注信息")
-    private String note;
+    private String remark;
 
     @ApiModelProperty(value = "创建时间")
     private Date createTime;
