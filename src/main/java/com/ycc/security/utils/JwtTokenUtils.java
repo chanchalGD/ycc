@@ -5,8 +5,10 @@ import com.ycc.security.model.JwtAuthenticatioToken;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
@@ -17,6 +19,7 @@ import java.util.*;
  * @author ccc
  * @date 2020/06/28
  **/
+@Component
 public class JwtTokenUtils implements Serializable {
 
     private static final long serialVersionUID = 1L;

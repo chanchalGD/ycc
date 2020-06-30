@@ -1,19 +1,16 @@
-package com.ycc.controller;
+package com.ycc.user.controller;
 
 import com.ycc.common.hint.CommonPrompts;
 import com.ycc.common.utils.Assert;
 import com.ycc.common.vo.Response;
-import com.ycc.model.dto.UserLoginDto;
-import com.ycc.model.dto.UserRegisterDto;
-import com.ycc.model.entity.UserAdmin;
-import com.ycc.security.model.JwtAuthenticatioToken;
-import com.ycc.security.utils.SecurityUtils;
-import com.ycc.service.UserService;
+import com.ycc.user.model.dto.UserLoginDto;
+import com.ycc.user.model.dto.UserRegisterDto;
+import com.ycc.user.model.entity.UserAdmin;
+import com.ycc.user.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,10 +27,8 @@ import javax.servlet.http.HttpServletRequest;
 public class UserController {
 
     @Autowired
-    private AuthenticationManager authenticationManager;
-
-    @Autowired
     private UserService userService;
+
 
 
     @GetMapping("/authCode")
@@ -50,7 +45,9 @@ public class UserController {
         String userName = userLoginDto.getUserName();
         String passWord = userLoginDto.getPassWord();
         // 系统登录认证
-        JwtAuthenticatioToken token = SecurityUtils.login(request, userName, passWord, authenticationManager);
+        //
+        // JwtAuthenticatioToken token = SecurityUtils.login(request, userName, passWord, authenticationManager);
+        String token = userService.login(userName,passWord);
         return new Response<>().succcess(token);
     }
 
@@ -61,7 +58,7 @@ public class UserController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
     public Response<UserAdmin> register(@RequestBody @Validated UserRegisterDto userRegisterDto) {
-        UserAdmin userAdmin = userService.register(userRegisterDto);
+        UserAdmin userAdmin = userService.userRegister(userRegisterDto);
         Assert.isNull(userAdmin,CommonPrompts.REGISTER_FAILED);
         return new Response<UserAdmin>().succcess(userAdmin);
     }

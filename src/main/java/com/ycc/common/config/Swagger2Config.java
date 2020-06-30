@@ -77,7 +77,7 @@ public class Swagger2Config implements WebMvcConfigurer {
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
 				// //大标题
-				.title("ycc后台服务API接口文档")
+				.title("ycc-API接口文档")
 				// 版本号
 				.version("1.0")
 				// 描述

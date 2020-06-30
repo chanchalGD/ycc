@@ -5,9 +5,11 @@ package com.ycc.common.hint;
  * @author Administrator
  * @date 2020/06/29
  */
-public interface CommonPrompts {
+public interface CommonPrompts  {
     String REGISTER_FAILED = "注册失败";
     String REGISTER_PHONE_USED = "该用户手机号已注册";
     String REGISTER_EMAIL_USED = "该用户的邮箱已注册";
+
+    String LOGIN_LOG_FAILED = "用户登陆-记录日志异常";
 
 }
