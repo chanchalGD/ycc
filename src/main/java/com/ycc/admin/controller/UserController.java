@@ -1,20 +1,20 @@
-package com.ycc.user.controller;
+package com.ycc.admin.controller;
 
+import com.ycc.admin.model.vo.UserLoginVo;
+import com.ycc.admin.model.vo.UserRegisterVo;
 import com.ycc.common.hint.CommonPrompts;
 import com.ycc.common.utils.Assert;
 import com.ycc.common.vo.Response;
-import com.ycc.user.model.dto.UserLoginDto;
-import com.ycc.user.model.dto.UserRegisterDto;
-import com.ycc.user.model.entity.UserAdmin;
-import com.ycc.user.service.UserService;
+import com.ycc.admin.model.dto.UserLoginDto;
+import com.ycc.admin.model.dto.UserRegisterDto;
+import com.ycc.admin.model.entity.UserAdmin;
+import com.ycc.admin.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author ccc
@@ -29,8 +29,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-
-
     @GetMapping("/authCode")
     public String getAuthCode() {
         return null;
@@ -41,14 +39,14 @@ public class UserController {
      */
     @ApiOperation(value = "用户登陆")
     @PostMapping(value = "/login")
-    public Response login(UserLoginDto userLoginDto, HttpServletRequest request) {
+    public Response<UserLoginVo> login(UserLoginDto userLoginDto) {
         String userName = userLoginDto.getUserName();
         String passWord = userLoginDto.getPassWord();
         // 系统登录认证
-        //
-        // JwtAuthenticatioToken token = SecurityUtils.login(request, userName, passWord, authenticationManager);
-        String token = userService.login(userName,passWord);
-        return new Response<>().succcess(token);
+        String token = userService.login(userName, passWord);
+        UserLoginVo userLoginVo = new UserLoginVo();
+        userLoginVo.setToken(token);
+        return new Response<UserLoginVo>().succcess(userLoginVo);
     }
 
     /**
@@ -57,11 +55,12 @@ public class UserController {
     @ApiOperation(value = "用户注册")
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
-    public Response<UserAdmin> register(@RequestBody @Validated UserRegisterDto userRegisterDto) {
+    public Response<UserRegisterVo> register(@RequestBody @Validated UserRegisterDto userRegisterDto) {
         UserAdmin userAdmin = userService.userRegister(userRegisterDto);
-        Assert.isNull(userAdmin,CommonPrompts.REGISTER_FAILED);
-        return new Response<UserAdmin>().succcess(userAdmin);
+        Assert.isNull(userAdmin, CommonPrompts.REGISTER_FAILED);
+        UserRegisterVo userRegisterVo = new UserRegisterVo();
+        userRegisterVo.setUserAdmin(userAdmin);
+        return new Response<UserRegisterVo>().succcess(userRegisterVo);
     }
-
 
 }

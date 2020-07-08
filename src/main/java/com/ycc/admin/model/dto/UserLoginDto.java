@@ -1,4 +1,4 @@
-package com.ycc.user.model.dto;
+package com.ycc.admin.model.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;

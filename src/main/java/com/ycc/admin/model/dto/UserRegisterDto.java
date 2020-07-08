@@ -1,4 +1,4 @@
-package com.ycc.user.model.dto;
+package com.ycc.admin.model.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -30,6 +30,7 @@ public class UserRegisterDto {
 
     @NotNull(message = "年龄不能为空")
     @ApiModelProperty(value = "年龄")
+    @Min(0)
     private Integer age;
 
     @NotEmpty(message = "手机不能为空")

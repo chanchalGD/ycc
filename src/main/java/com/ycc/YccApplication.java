@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author ccc
  */
 @SpringBootApplication
-@MapperScan(basePackages = "com.ycc.user.mapper")
+@MapperScan(basePackages = "com.ycc.admin.mapper")
 public class YccApplication {
     public static void main(String[] args) {
         SpringApplication.run(YccApplication.class,args);

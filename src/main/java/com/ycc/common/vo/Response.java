@@ -45,7 +45,7 @@ public class Response<T> implements Serializable {
         response.setMessage(ResponseStatus.SUCCESS.getMessage());
         response.setCode(ResponseStatus.SUCCESS.getCode());
         response.setResult(true);
-        return this;
+        return response;
     }
 
     /**
@@ -57,7 +57,7 @@ public class Response<T> implements Serializable {
         response.setCode(ResponseStatus.SUCCESS.getCode());
         response.setResult(true);
         response.setData(data);
-        return this;
+        return response;
     }
 
     /**
@@ -68,7 +68,7 @@ public class Response<T> implements Serializable {
         response.setMessage(ResponseStatus.FAILED.getMessage());
         response.setCode(ResponseStatus.FAILED.getCode());
         response.setResult(false);
-        return this;
+        return response;
     }
 
     /**
@@ -79,7 +79,7 @@ public class Response<T> implements Serializable {
         response.setCode(ResponseStatus.FAILED.getCode());
         response.setResult(false);
         response.setMessage(message);
-        return this;
+        return response;
     }
 
     /**
@@ -92,7 +92,7 @@ public class Response<T> implements Serializable {
         response.setCode(ResponseStatus.FAILED.getCode());
         response.setResult(false);
         response.setData(data);
-        return this;
+        return response;
     }
 
 

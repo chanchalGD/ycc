@@ -1,4 +1,4 @@
-package com.ycc.user.model.entity;
+package com.ycc.admin.model.entity;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;

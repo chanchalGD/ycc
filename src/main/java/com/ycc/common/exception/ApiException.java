@@ -1,5 +1,8 @@
 package com.ycc.common.exception;
 
+/**
+ * @author chan
+ */
 public class ApiException extends RuntimeException{
     private IErrorCode errorCode;
 

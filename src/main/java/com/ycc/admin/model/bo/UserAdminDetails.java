@@ -1,7 +1,9 @@
-package com.ycc.user.model.bo;
+package com.ycc.admin.model.bo;
 
-import com.ycc.user.model.entity.UserAdmin;
-import com.ycc.user.model.entity.UserResource;
+import com.ycc.admin.model.entity.UserAdmin;
+import com.ycc.admin.model.entity.UserResource;
+import com.ycc.common.hint.UserAdminStatus;
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,6 +12,10 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * @author chan
+ */
+@Data
 public class UserAdminDetails implements UserDetails {
 
     private UserAdmin userAdmin;
@@ -28,12 +34,12 @@ public class UserAdminDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return userAdmin.getPassWord();
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return userAdmin.getUserName();
     }
 
     @Override
@@ -43,7 +49,7 @@ public class UserAdminDetails implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return userAdmin.getStatus().equals(UserAdminStatus.NO_EXIST.getStatus());
     }
 
     @Override

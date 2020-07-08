@@ -1,8 +1,8 @@
-package com.ycc.user.service;
+package com.ycc.admin.service;
 
-import com.ycc.user.model.dto.UserRegisterDto;
-import com.ycc.user.model.entity.UserAdmin;
-import com.ycc.user.model.entity.UserResource;
+import com.ycc.admin.model.dto.UserRegisterDto;
+import com.ycc.admin.model.entity.UserAdmin;
+import com.ycc.admin.model.entity.UserResource;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.List;

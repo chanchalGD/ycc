@@ -1,8 +1,8 @@
-package com.ycc.user.mapper;
+package com.ycc.admin.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.ycc.user.model.entity.UserAdmin;
-import com.ycc.user.model.entity.UserResource;
+import com.ycc.admin.model.entity.UserAdmin;
+import com.ycc.admin.model.entity.UserResource;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import java.util.List;

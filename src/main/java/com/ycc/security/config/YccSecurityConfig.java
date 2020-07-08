@@ -1,6 +1,6 @@
 package com.ycc.security.config;
 
-import com.ycc.user.service.UserService;
+import com.ycc.admin.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.UserDetailsService;

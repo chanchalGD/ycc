@@ -29,6 +29,6 @@ public class ExpectionHandlerController {
     @ResponseBody
     public Response<?> handleException(Exception e) {
         log.error("服务异常", e);
-        return new Response().failed("服务异常，请检查数据是否正确");
+        return new Response().failed("服务异常: "+e.getMessage());
     }
 }
